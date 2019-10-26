@@ -86,7 +86,7 @@ function getWebsites() {
             <article>
                 <h3>${web.websiteTitle}</h3>
                 <p>${web.websiteDescription}</p>
-                <a class="btn" href="${web.websiteLink} target="_blank">Till webbplats</a>
+                <a class="btn" href="${web.websiteLink}" target="_blank">Till webbplats</a>
                 <p class="boxline"></p>
             </article>
             `
