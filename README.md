@@ -1,5 +1,8 @@
 # Projekt - Webbplats för CV
 
+URL till webbplats:
+http://studenter.miun.se/~emno1501/dt173g/projekt/cv/index.php
+
 Webbplatsen konsumerar en skapad webbtjänst som tillhandahåller data om CV-uppgifter. Webbplatsen hämtar datan via anrop med Fetch API. Datan som hämtas är genomförda utbildningar, arbetserfarenheter och skapade webbplatser och skrivs ut i artikelelement i vardera sektioner.
 
 Repot består av;
