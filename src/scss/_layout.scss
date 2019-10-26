@@ -1,0 +1,297 @@
+
+//selector inheritances för layout
+%margins {
+    h2 {
+        margin-bottom: 40px;
+    }
+    h3 {
+        margin-bottom: 5px;
+    }
+    p {
+        margin-bottom: 20px;
+    }
+    article {
+        margin-bottom: 20px;
+    }
+}
+
+//Webbplatsens uppbyggnad
+header {
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 30px 0;
+    background-color: $my-blue;
+    z-index: 2;
+}
+#hamburger { //Mobilmeny-ikon
+    display: none;
+}
+nav { //Huvudmeny
+    @extend %nav;
+}
+@include mediaQueries(699px) { //Regler för mobilskärmar
+    @include hamburgermenu(); //Mobilmeny (components)
+}
+//Startsektion
+#start {
+    background-color: $my-blue;
+    padding-top: 83px;
+    h1 {
+        margin-left: 10%;
+        line-height: 1.2em;
+        width: 90%;
+    }
+    #line {
+        width: 40px;
+        height: 20px;
+        border-bottom: 7px solid $my-petrol;
+        margin-left: 10%;
+    }
+    @include mediaQueries(699px) { //Regler för mobilskärmar
+        h1 {
+            width: 250px;
+        }
+    }
+    //Profilsektion
+    #profil {
+        margin-top: 80px;
+        overflow: auto;
+        background-color: black;
+        position: relative;
+        #imagebox {
+            background-image: url("../pics/profilbild.jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            width: 50%;
+            float: left;
+            position: absolute;
+                top: 0;
+                bottom: 0;
+            p {
+                width: 100%;
+            }
+        }
+        #profiltext {
+            float: right;
+            width: 34%;
+            padding: 60px 8%;
+            background-color: $my-grey;
+            @extend %margins;
+            @include mediaQueries(970px, 700px) { //Regler för tabletskrämar
+                padding: 50px 4% 30px 4%;
+                width: 42%;
+            }
+        }
+        @include mediaQueries(699px) { //Regler för mobilskärmar
+            #imagebox {
+                float: none;
+                clear: both;
+                width: 100%;
+                height: 350px;
+                position: static;
+            }
+            #profiltext {
+                float: none;
+                width: 80%;
+                padding: 60px 10% 20px 10%;
+            }
+        }
+    }
+}
+//Box för arbetserfarenhetssektion och utbildningssektion
+#edworkcontainer {
+    position: relative;
+    overflow: auto;
+    article {
+        border-left: 5px solid black;
+        padding-left: 10px;
+        max-width: 250px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    @extend %margins;
+    h2 {
+        text-align: center;
+    }
+    p {
+        margin-bottom: 10px;
+    }
+    @include mediaQueries(970px, 700px) { //Regler för tabletskärmar
+        h2 {
+            text-align: left;
+        }
+        article {
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+    @include mediaQueries(699px) { //Regler för mobilskärmar
+        h2 {
+            text-align: left;
+        }
+        article {
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+}
+//Sektion för utbildning
+#education {
+    width: 40%;
+    padding: 5%;
+    float: left;
+    @include mediaQueries(970px, 700px) { //Regler för tabletskärmar
+        float: none;
+        width: 80%;
+        padding: 10%;
+    }
+    @include mediaQueries(699px) { //Regler för mobilskärmar
+        float: none;
+        width: 80%;
+        padding: 10%;
+    }
+}
+//Sektion för arbetserfarenhet
+#workxp {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    width: 40%;
+    padding: 5%;
+    background-color: $my-petrol;
+    h2, h3, p {
+        color: white;
+    }
+    article {
+        border-left: 5px solid white;
+    }
+    @include mediaQueries(970px, 700px) { //Regler för tabletskärmar
+        position: static;
+        width: 80%;
+        padding: 10%;
+    }
+    @include mediaQueries(699px) { //Regler för mobilskärmar
+        position: static;
+        width: 80%;
+        padding: 10%;
+    }
+}
+//Sektion för webbplatser
+#websites {
+    width: 100%;
+    background-color: $my-grey;
+    padding: 70px 0;
+    clear: both;
+    h2 {
+        text-align: center;
+    }
+    @extend %margins;
+    #websitebox {
+        overflow: auto;
+        max-width: 450px;
+        margin: 0 auto;
+        article {
+            margin-bottom: 60px;
+            padding-left: 3%;
+        }
+        h3 {
+            margin-bottom: 15px;
+        }
+        p {
+            margin-bottom: 30px;
+        }
+        .btn {
+            @extend %button;
+        }
+        .btn:hover {
+            @extend %buttonhover;
+        }
+        .boxline {
+            width: 40px;
+            height: 30px;
+            border-bottom: 5px solid black;
+        }
+    }
+    @include mediaQueries(970px, 700px) { //Regler för tabletskärmar
+        width: 80%;
+        padding: 10%;
+        h2 {
+            text-align: left;
+            margin-left: 2%;
+        }
+        #websitebox {
+            max-width: 100%;
+            article {
+                width: 60%;
+                max-width: 400px;
+                margin: 0 0 40px 0;
+                padding-left: 2%;
+            }
+        }
+    }
+    @include mediaQueries(699px) { //Regler för mobilskärmar
+        width: 80%;
+        padding: 10%;
+        h2 {
+            text-align: left;
+            margin-left: 2%;
+        }
+        #websitebox {
+            max-width: 100%;
+            article {
+                width: 98%;
+                max-width: 98%;
+                margin: 0 0 40px 0;
+                padding-left: 2%;
+            }
+        }
+    }
+}
+//Sidfot
+footer {
+    background-color: black;
+    padding: 20px 0 0 0;
+    width: 100%;
+    overflow: auto;
+    position: relative;
+    p, a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.2rem;
+    }
+    #copyright {
+        position: absolute;
+        bottom: 10px;
+        left: 35px;
+    }
+    #sociallinks {
+        float: right;
+        margin-right: 35px;
+        columns: 2;
+        width: 250px;
+        img {
+            width: 25px;
+            height: 25px;
+            position: relative;
+            top: 12px;
+            margin: 5px 10px 5px 5px;
+        }
+        a:hover img {
+            opacity: 0.5;
+        }
+    }
+    @include mediaQueries(699px) { //Regler för mobilskärmar
+        #sociallinks {
+            float: left;
+            columns: 1;
+            width: 120px;
+            margin-left: 30px;
+            margin-bottom: 50px;
+        }
+    }
+}
