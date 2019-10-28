@@ -16,8 +16,8 @@ let d = new Date();
 copyright.innerHTML = `Copyright ${d.getFullYear()} Emma Norgren`;
 
 //Mobilmeny - fäll ned och upp
-var navigation = document.getElementById("navigation");
-var menuicon = document.getElementById("hamburger");
+let navigation = document.getElementById("navigation");
+let menuicon = document.getElementById("hamburger");
 navigation.addEventListener("click", mobileMenu, false);
 
 function mobileMenu() {
